@@ -20,12 +20,19 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.18'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+
+gem 'rack-cors', '~>1.1.1'
+#This allows the Cross-Origin Resource Sharing (CORS) in the API. CORS prevents API calls from unknown origins.
+
+gem 'jwt', '~> 2.6.0'
+
+
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do

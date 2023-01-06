@@ -5,14 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Post.create([
-    {
-        title:"Sample Post #1",
-        description:"Nunc at erat sit amet mauris dapibus commodo. Sed quis interdum purus, eu varius enim."
-    },
-    {
-        title:"Sample Post #2",
-        description:"Sed dignissim auctor neque maximus placerat. Sed eget urna quis turpis laoreet gravida."
-    }
+# Post.create([
+#     {
+#         title:"Sample Post #1",
+#         description:"Nunc at erat sit amet mauris dapibus commodo. Sed quis interdum purus, eu varius enim."
+#     },
+#     {
+#         title:"Sample Post #2",
+#         description:"Sed dignissim auctor neque maximus placerat. Sed eget urna quis turpis laoreet gravida."
+#     }
+# ]
+# )
+Tag.create([
+    {name: "Esporte"}, {name: "Economia"}, {name: "Culinária"}, {name: "Política"}
 ]
 )
