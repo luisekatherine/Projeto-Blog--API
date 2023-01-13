@@ -1,4 +1,4 @@
-json.extract! post, :id, :title, :description
+json.extract! post, :id, :title, :description, :user_id
 
 if with_tags
     json.tags do

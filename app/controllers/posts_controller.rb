@@ -61,7 +61,7 @@ class PostsController < ApplicationController
     end
 
     def tag_params
-        params.require(:post).permit(:tag_id, :tag_id[])
+        params.require(:post).permit(:tag_id, tag_id:[])
     end
 
     def set_post

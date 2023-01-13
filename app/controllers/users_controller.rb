@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   include BCrypt
   #before_action :set_user, only: %i[ edit update destroy ]
+  before_action :set_user, only: %i[ show ]
   before_action :authorized, only: %i[ update destroy auto_login ]
 
   # GET /users or /users.json
@@ -11,6 +12,10 @@ class UsersController < ApplicationController
   # GET /auto_login
   def auto_login
     render :show
+  end
+
+  #GET/show/:id
+  def show
   end
 
   # GET /users/new
@@ -60,6 +65,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /user
   def update
+    byebug
     @user.update!(user_params)
     render :show, status: :ok
   end

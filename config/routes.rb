@@ -4,6 +4,7 @@ put "/user", to: 'users#update'
 delete "/user", to: 'users#destroy'
 post "/login", to: 'users#login'
 get "/auto_login", to: "users#auto_login"
+get "/user/:id", to: "users#show"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'posts#index'
 
