@@ -65,7 +65,6 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /user
   def update
-    byebug
     @user.update!(user_params)
     render :show, status: :ok
   end

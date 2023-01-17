@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
     before_action :authorized, except: [ :index, :show ]
     before_action :set_post, only: [ :show, :update, :destroy, :link_tag, :unlink_tag, :tags_view ]
-    before_action :set_tag, only: [ :link_tag, :unlink_tag ]
+    before_action :set_tag, only: [ :link_tag ]
     before_action :render_not_authorized, only: [ :update, :destroy, :link_tag, :unlink_tag ]
 
     #GET / POSTS
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
 
     #DELETE /posts/:id/tag
     def unlink_tag
-        @tag = @post.tags.find(tag_params[:tag_id])
+        @tag = @post.tags.find(params[:tag_id])
         @post.tags.delete(@tag)
         render json: @post.tags, status: :ok
     end
@@ -73,7 +73,7 @@ class PostsController < ApplicationController
         when 'link_tag'
             @tag = Tag.find(tag_params[:tag_id])
                 when 'unlink_tag'
-            @tag = post.tags.find(tag_params[:tag_id])
+            @tag = @post.tags.find(tag_params[:tag_id])
         end
     end
 

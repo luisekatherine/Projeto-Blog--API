@@ -18,14 +18,8 @@ get "/user/:id", to: "users#show"
     end
   resources :tags, except: %i(new edit)
   post 'posts/:id/tag', to: 'posts#link_tag'
-  delete 'posts/:id/tag', to: 'posts#unlink_tag'
+  delete 'posts/:id/tag/:tag_id', to: 'posts#unlink_tag'
   get 'posts/:id/tags', to: 'posts#tags_view'  
  # mesma coisa que post 'posts/:id/tag', controller: :posts, action :link_tag
 
-  #get '/posts', to: 'posts#index'
-  #post "/posts", to: "posts#create"
-  #get "/posts/:id", to: "posts#show"
-  #patch "/posts/:id", to: "posts#update"
-  #put "/posts/:id", to: "posts#update"
-  #delete "/posts/:id", to: "posts#destroy"
 end
