@@ -1,6 +1,8 @@
 class LikesController < ApplicationController
     before_action :authorized #para verificar se há alguém logado
     before_action :set_post, only: [ :create_like_post ]
+    before_action :set_post_like, only: [ :destroy_like_post ]
+    before_action :set_comment_like, only: [ :destroy_like_comment ]
     before_action :set_comment, only: [ :create_like_comment ]
     before_action :set_like, only: [ :destroy_like_comment, :destroy_like_post ]
     before_action :render_not_authorized, only: [ :destroy_like_comment, :destroy_like_post  ] #verifica se o usuário que deu o like, vai tirar o like
@@ -39,10 +41,14 @@ class LikesController < ApplicationController
         @post = Post.find(params[:post_id])
     end
 
-    def set_like
-        @like = Like.find(params[:id])
+    def set_post_like
+        @like = Post.find(params[:post_id]).likes.find_by(user_id: @user.id)
     end
 
+    def set_comment_like
+        @like = Comment.find(params[:comment_id]).likes.find_by(user_id: @user.id)
+    end
+    
     def authorized?
         @user == @like.user
     end

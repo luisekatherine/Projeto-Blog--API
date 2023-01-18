@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    before_action :set_current_user
     before_action :default_request_format
     before_action :authorized
     protect_from_forgery with: :null_session
@@ -42,6 +43,10 @@ class ApplicationController < ActionController::Base
     
       def authorized
         render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
+      end
+
+      def set_current_user
+        logged_in_user
       end
       
     private

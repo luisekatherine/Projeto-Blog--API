@@ -10,8 +10,8 @@ get "/user/:id", to: "users#show"
 
   post '/posts/:post_id/like', to: 'likes#create_like_post'
   post '/posts/:post_id/comments/:comment_id/like', to: 'likes#create_like_comment'
-  delete '/posts/:post_id/like/:id', to: 'likes#destroy_like_post'
-  delete '/posts/:post_id/comments/:comment_id/like/:id', to: 'likes#destroy_like_comment'
+  delete '/posts/:post_id/like', to: 'likes#destroy_like_post'
+  delete '/posts/:post_id/comments/:comment_id/like', to: 'likes#destroy_like_comment'
 
   resources :posts, except: %i(new edit) do
     resources :comments, except: %i(new edit)

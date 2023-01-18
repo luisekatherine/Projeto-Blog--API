@@ -9,3 +9,9 @@ end
 if !with_likes
     json.comment comment.likes.size
 end
+
+if @user && comment.likes.find { | userLiked | userLiked.user_id == @user.id }
+    json.liked true
+else
+    json.liked false
+end

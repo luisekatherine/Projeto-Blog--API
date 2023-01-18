@@ -18,3 +18,10 @@ if !with_tags
     json.comment post.comments.size
     json.like_post post.likes.size
 end
+
+
+if @user && post.likes.find { |userLiked | userLiked.user_id == @user.id }
+    json.liked true
+else
+    json.liked false
+end
