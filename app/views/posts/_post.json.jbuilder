@@ -1,4 +1,4 @@
-json.extract! post, :id, :title, :description, :user_id
+json.extract! post, :id, :title, :description, :user_id, :updated_at
 
 if with_tags
     json.tags do
@@ -20,7 +20,7 @@ if !with_tags
 end
 
 
-if @user && post.likes.find { |userLiked | userLiked.user_id == @user.id }
+if @user && post.likes.find { | userLiked | userLiked.user_id == @user.id }
     json.liked true
 else
     json.liked false

@@ -4,7 +4,7 @@ class LikesController < ApplicationController
     before_action :set_post_like, only: [ :destroy_like_post ]
     before_action :set_comment_like, only: [ :destroy_like_comment ]
     before_action :set_comment, only: [ :create_like_comment ]
-    before_action :set_like, only: [ :destroy_like_comment, :destroy_like_post ]
+    # before_action :set_like, only: [ :destroy_like_comment, :destroy_like_post ]
     before_action :render_not_authorized, only: [ :destroy_like_comment, :destroy_like_post  ] #verifica se o usuário que deu o like, vai tirar o like
 
     def create_like_post

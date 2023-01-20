@@ -1,4 +1,4 @@
-json.extract! comment, :id, :text, :user_id
+json.extract! comment, :id, :text, :user_id, :updated_at
 
 if with_likes
     json.likes do
